@@ -1,0 +1,9 @@
+<ul>
+  <li
+  (click)="toggleItem()"
+  [ngClass]="{active : yes}"
+  *ng-for="#section of sections"
+  >
+  Hi! {{section.name}}
+  </li>
+</ul>

@@ -1,0 +1,68 @@
+@import "_globals";
+
+//Mixins
+@mixin loader-ball {
+  width:15px;
+  height:15px;
+  margin-top:7.5px;
+  border-radius:50%;
+  background:$MainColor;
+  @include animation(revolution, 2s, linear, infinite);
+}
+
+#loader{
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-50px;
+  margin-left:-50px;
+  background:#282828;
+  width:100px;
+  height:100px;
+  border-radius: 50%;
+
+}
+
+#loader > div {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:30px;
+  height:30px;
+  margin-left:-15px;
+  margin-top:-15px;
+  background:$MainColor;
+  border-radius:50%;
+  @include animation(revolution, 2s, linear, infinite);
+
+  &::after{
+    content:"";
+    position:absolute;
+    left:40px;
+    @include loader-ball;
+  }
+
+  &::before{
+    content:"";
+    position:absolute;
+    left:-25px;
+    @include loader-ball;
+  }
+
+
+}
+
+@include keyframe(revolution) {
+    0% {
+        transform:rotate(0deg);
+        background:$MainColor;
+    }
+    50% {
+        transform:rotate(180deg);
+        background:$SecondaryColor;
+    }
+    100% {
+        transform:rotate(360deg);
+        background:$MainColor;
+    }
+}

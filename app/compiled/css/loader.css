@@ -1,0 +1,95 @@
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  background: #282828;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; }
+
+#loader > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  margin-top: -15px;
+  background: #0061B0;
+  border-radius: 50%;
+  -webkit-animation: revolution 2s linear infinite;
+  -moz-animation: revolution 2s linear infinite;
+  -o-animation: revolution 2s linear infinite;
+  animation: revolution 2s linear infinite; }
+  #loader > div::after {
+    content: "";
+    position: absolute;
+    left: 40px;
+    width: 15px;
+    height: 15px;
+    margin-top: 7.5px;
+    border-radius: 50%;
+    background: #0061B0;
+    -webkit-animation: revolution 2s linear infinite;
+    -moz-animation: revolution 2s linear infinite;
+    -o-animation: revolution 2s linear infinite;
+    animation: revolution 2s linear infinite; }
+  #loader > div::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    width: 15px;
+    height: 15px;
+    margin-top: 7.5px;
+    border-radius: 50%;
+    background: #0061B0;
+    -webkit-animation: revolution 2s linear infinite;
+    -moz-animation: revolution 2s linear infinite;
+    -o-animation: revolution 2s linear infinite;
+    animation: revolution 2s linear infinite; }
+
+@-webkit-keyframes revolution {
+  0% {
+    transform: rotate(0deg);
+    background: #0061B0; }
+  50% {
+    transform: rotate(180deg);
+    background: #009688; }
+  100% {
+    transform: rotate(360deg);
+    background: #0061B0; } }
+
+@-moz-keyframes revolution {
+  0% {
+    transform: rotate(0deg);
+    background: #0061B0; }
+  50% {
+    transform: rotate(180deg);
+    background: #009688; }
+  100% {
+    transform: rotate(360deg);
+    background: #0061B0; } }
+
+@-o-keyframes revolution {
+  0% {
+    transform: rotate(0deg);
+    background: #0061B0; }
+  50% {
+    transform: rotate(180deg);
+    background: #009688; }
+  100% {
+    transform: rotate(360deg);
+    background: #0061B0; } }
+
+@keyframes revolution {
+  0% {
+    transform: rotate(0deg);
+    background: #0061B0; }
+  50% {
+    transform: rotate(180deg);
+    background: #009688; }
+  100% {
+    transform: rotate(360deg);
+    background: #0061B0; } }
