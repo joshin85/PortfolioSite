@@ -8,7 +8,7 @@ import {Component, View} from 'angular2/core';
   templateUrl: 'app/templates/splash.component.html'
 })
 
-export class splash {
+export class Splash {
 
   constructor(){
 
@@ -25,7 +25,8 @@ export class splash {
       background.style.backgroundSize = "cover";
       background.style.opacity = "1";
       titlebar.style.opacity = "1";
-      hamburger.style.opacity = "1";
+      if(hamburger != null)
+        hamburger.style.opacity = "1";
     };
 
   }

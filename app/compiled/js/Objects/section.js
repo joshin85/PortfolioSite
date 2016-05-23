@@ -7,6 +7,13 @@ System.register([], function(exports_1, context_1) {
         execute: function() {
             section = (function () {
                 function section(id, name, headerText, bodyText, footerText, imageURL) {
+                    this.id = id;
+                    this.name = name;
+                    this.headerText = headerText;
+                    this.bodyText = bodyText;
+                    this.footerText = footerText;
+                    this.imageURL = imageURL;
+                    this.active = false;
                 }
                 return section;
             }());

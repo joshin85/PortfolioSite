@@ -4,11 +4,15 @@ $ImagePath :"../../images/";
 
 //Colors
 $MainColor: #0061B0;
-$SecondaryColor: #009688;
-$TextColor: #fff;
-$TextHover: #282828;
+$SecondaryColor: #0061B0;
+$LightColor:#33c9bb;
+$BackgroundColor: #fff;
+$TextColor: #282828;
+$TextActive: #fff;
+$TextHover: #565656;
 
 //layers
+$layerHidden : -1;
 $layerA : 4;
 $layerB : 6;
 $layerC : 8;

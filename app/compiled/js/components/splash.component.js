@@ -11,17 +11,17 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var splash;
+    var Splash;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            splash = (function () {
-                function splash() {
+            Splash = (function () {
+                function Splash() {
                 }
-                splash.prototype.ngAfterContentInit = function () {
+                Splash.prototype.ngAfterContentInit = function () {
                     var bgImage = new Image();
                     bgImage.src = "http://192.168.1.97:3000/app/images/1005141859b.jpg";
                     bgImage.onload = function () {
@@ -32,10 +32,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         background.style.backgroundSize = "cover";
                         background.style.opacity = "1";
                         titlebar.style.opacity = "1";
-                        hamburger.style.opacity = "1";
+                        if (hamburger != null)
+                            hamburger.style.opacity = "1";
                     };
                 };
-                splash = __decorate([
+                Splash = __decorate([
                     core_1.Component({
                         selector: 'splash'
                     }),
@@ -43,10 +44,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         templateUrl: 'app/templates/splash.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], splash);
-                return splash;
+                ], Splash);
+                return Splash;
             }());
-            exports_1("splash", splash);
+            exports_1("Splash", Splash);
         }
     }
 });

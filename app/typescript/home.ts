@@ -1,8 +1,9 @@
 import {Component, View} from 'angular2/core';
 
-import {sidemenu} from './components/menuside.component';
-import {splash} from './components/splash.component';
+import {SideMenu} from './components/menuside.component';
+import {Splash} from './components/splash.component';
 import {section} from './Objects/section';
+import globals  = require('./Data/sections');
 
 @Component({
     selector: 'Portfolio-Shinjo',
@@ -10,18 +11,12 @@ import {section} from './Objects/section';
 
 @View({
   templateUrl: 'app/templates/home.component.html',
-    directives: [sidemenu, splash]
+    directives: [SideMenu, Splash]
 })
 
 export class home {
-  constructor(){
-
-  }
-  onClick(){
-    alert("hello");
+  public sections : section[];
+  constructor () {
+      this.sections = globals.sections;
   }
 }
-
-var sections: section[] = [
-  { "id" : 1, "name" : "About Me", "headerText":"About Me", "bodyText":"Body","footerText":"Footer", "imageURL":"null" }
-];

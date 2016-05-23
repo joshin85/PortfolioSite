@@ -5,7 +5,7 @@
   width:21px;
   height:14px;
   z-index:$layerC;
-  background: #fff;
+  background: $BackgroundColor;
   border-radius: 0px;
   display: inline-block;
   padding: 10px;
@@ -13,7 +13,7 @@
   opacity:0;
 
   &:hover .icon-bar{
-    box-shadow:3px 3px 3px RGBA(0,0,0,.2);
+    @include shadow;
   }
 
   &.active {
@@ -45,7 +45,7 @@
   margin-top:4px;
 
   &:hover{
-    box-shadow:3px 3px 3px RGBA(0,0,0,.2);
+    @include shadow;
   }
   &:first-of-type{
     margin-top:0px;
@@ -60,15 +60,17 @@
     left:-#{$SideMenuWidth + 1}px;
     top:0px;
     height:100%;
-    background:white;
+    background:$BackgroundColor;
     z-index:$layerOverlay;
     &.active {
       @include translate(#{$SideMenuWidth}px, 0px);
     }
 
     h2 {
-      margin-left:30px;
+      font-size:30px;
+      margin-left:20px;
       cursor:default;
+      color:$MainColor;
 
       @include unselectable;
     }
@@ -81,19 +83,20 @@
 
     li{
       cursor:default;
-      font-size:20px;
-      padding:15px 30px;
+      font-size:17px;
+      padding:15px 20px;
       cursor:pointer;
-      border-right:5px solid #fff;
+      color:$TextColor;
+      font-weight:500;
+
       &:hover {
-        border-right:5px solid $MainColor;
-        color:#565656;
-        font-size:21px;
+        color:$TextHover;
+        background:#ddd;
       }
 
       &.active {
-        font-size:25px;
-        font-weight:bold;
+        background:$MainColor;
+        color:$TextActive;
       }
 
       .fa {
@@ -102,7 +105,7 @@
 
       @include unselectable;
       @include accelerate;
-      @include animate(.4s);
+      @include animate(.2s);
     }
 
 
@@ -133,7 +136,7 @@
   width: 100vw;
   background: black;
   opacity: 0;
-  z-index: -1;
+  z-index: $layerHidden;
   cursor:pointer;
 
   &.active{

@@ -3,8 +3,8 @@
 </div>
 <div id="menu-side" [ngClass]="{active : on}">
 
-<h2><i class="fa fa-bars"></i> {{Menu}}</h2>
-  <section-menuitems></section-menuitems>
+<h2><i class="fa fa-bars"></i> {{name}}</h2>
+  <section-menuitems [sections]="sections"></section-menuitems>
 </div>
 <span id="navmenu-side" (click)="showMenuSide()" [ngClass]="{active : on}">
     <span class="icon-bar"></span>
