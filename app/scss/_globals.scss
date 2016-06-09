@@ -4,17 +4,18 @@ $ImagePath :"../../images/";
 
 //Colors
 $MainColor: #0061B0;
-$SecondaryColor: #0061B0;
+$SecondaryColor: #ddd;
 $LightColor:#33c9bb;
 $BackgroundColor: #fff;
 $TextColor: #282828;
-$TextActive: #fff;
+$TextLight: #777;
+$TextActive: #777;
 $TextHover: #565656;
 
 //layers
-$layerHidden : -1;
-$layerA : 4;
-$layerB : 6;
+$layerHidden : -4;
+$layerBackground : -2;
+$layerBody : 6;
 $layerC : 8;
 $layerOverlay : 10;
 
@@ -114,6 +115,7 @@ $desktop-width: 1024px;
 }
 
 @mixin unselectable {
+  cursor:default;
   -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */

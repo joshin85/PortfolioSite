@@ -1,8 +1,8 @@
 import {Component, View} from 'angular2/core';
-
 import {SideMenu} from './components/menuside.component';
-import {Splash} from './components/splash.component';
-import {section} from './Objects/section';
+import {Entry} from './components/entry.component';
+import {SectionContainer} from './components/section.component';
+import {Section} from './Objects/section';
 import globals  = require('./Data/sections');
 
 @Component({
@@ -11,12 +11,14 @@ import globals  = require('./Data/sections');
 
 @View({
   templateUrl: 'app/templates/home.component.html',
-    directives: [SideMenu, Splash]
+    directives: [SideMenu, Entry, SectionContainer]
 })
 
 export class home {
-  public sections : section[];
+  public sections : Section[];
   constructor () {
       this.sections = globals.sections;
   }
+
+
 }

@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './menucontainer.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, menucontainer_component_1;
     var Splash;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (menucontainer_component_1_1) {
+                menucontainer_component_1 = menucontainer_component_1_1;
             }],
         execute: function() {
             Splash = (function () {
@@ -25,6 +28,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     var bgImage = new Image();
                     bgImage.src = "http://192.168.1.97:3000/app/images/1005141859b.jpg";
                     bgImage.onload = function () {
+                        var loader = document.getElementById("loader");
+                        loader.innerHTML = "";
+                        loader.style.transform = "scale(15)";
+                        loader.style.opacity = "0";
                         var background = document.getElementById("background-fixed");
                         var titlebar = document.getElementById("title-bar");
                         var hamburger = document.getElementById("navmenu-side");
@@ -36,12 +43,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                             hamburger.style.opacity = "1";
                     };
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], Splash.prototype, "sections", void 0);
                 Splash = __decorate([
                     core_1.Component({
-                        selector: 'splash'
-                    }),
-                    core_1.View({
-                        templateUrl: 'app/templates/splash.component.html'
+                        selector: 'splash',
+                        templateUrl: 'app/templates/splash.component.html',
+                        directives: [menucontainer_component_1.MenuContainer]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Splash);

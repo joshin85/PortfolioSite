@@ -2,8 +2,6 @@
   position:fixed;
   top:30px;
   left:30px;
-  width:21px;
-  height:14px;
   z-index:$layerC;
   background: $BackgroundColor;
   border-radius: 0px;
@@ -11,9 +9,9 @@
   padding: 10px;
   cursor:pointer;
   opacity:0;
-
-  &:hover .icon-bar{
-    @include shadow;
+  border:1px solid $SecondaryColor;
+  &:hover {
+    background:$SecondaryColor
   }
 
   &.active {
@@ -44,9 +42,6 @@
   background:$MainColor;
   margin-top:4px;
 
-  &:hover{
-    @include shadow;
-  }
   &:first-of-type{
     margin-top:0px;
   }
@@ -67,7 +62,7 @@
     }
 
     h2 {
-      font-size:30px;
+      font-size:25px;
       margin-left:20px;
       cursor:default;
       color:$MainColor;
@@ -82,7 +77,6 @@
     }
 
     li{
-      cursor:default;
       font-size:17px;
       padding:15px 20px;
       cursor:pointer;
@@ -95,15 +89,14 @@
       }
 
       &.active {
-        background:$MainColor;
-        color:$TextActive;
+        background:$SecondaryColor;
+        color:$MainColor;
       }
 
       .fa {
         margin-right:25px;
       }
 
-      @include unselectable;
       @include accelerate;
       @include animate(.2s);
     }

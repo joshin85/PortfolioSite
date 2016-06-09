@@ -1,5 +1,5 @@
 import {Component, Input} from 'angular2/core';
-import {section} from '../Objects/section';
+import {Section} from '../Objects/section';
 import {NgClass} from 'angular2/common';
 
 @Component({
@@ -8,9 +8,7 @@ import {NgClass} from 'angular2/common';
 })
 
 export class MenuItem {
-  @Input()
-  section:section;
-
+  @Input() section;
   activateSection (){
     this.section.active = true;
   }

@@ -11,18 +11,20 @@ import {MenuContainer} from './menucontainer.component';
 })
 
 
-export class SideMenu {
+export class SideMenu  {
   @Input() sections;
-  on = false;
+  menuShow = false;
   name : string;
   backdrop = false;
   constructor() {
     this.name = "Menu";
   }
 
+  //Event for when nav button is clicked;
   showMenuSide(){
-    this.on = !this.on;
-    this.backdrop = !this.backdrop;
+    this.menuShow = !this.menuShow;
   }
+
+
 
 }

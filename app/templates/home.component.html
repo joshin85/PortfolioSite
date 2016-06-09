@@ -1,5 +1,12 @@
-<div>
-  <splash></splash>
-  <sidemenu [sections] = "sections"></sidemenu>
-  <section-container></section-container>
+<div class="loader-container">
+  <div id="loader">
+  </div>
 </div>
+<sidemenu [sections] = "sections"></sidemenu>
+<splash [sections]="sections"></splash>
+  <div id="container">
+    <section-container
+      *ngFor="#section of sections"
+      [section] = "section">
+    </section-container>
+  </div>

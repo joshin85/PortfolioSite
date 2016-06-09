@@ -1,0 +1,81 @@
+$HeaderHeight : 50;
+$HeaderPadding : 50;
+$FooterHeight : 50;
+$FooterPadding : 10;
+$BodyPadding : 50;
+
+section-container {
+  z-index:$layerBody;
+  background:white;
+}
+
+.section-header {
+  line-height: #{$HeaderHeight}px;
+  background: #282828;
+  color: white;
+  text-align: center;
+  padding:  #{$HeaderPadding}px;
+  font-size: 45px;
+
+  @include unselectable;
+}
+
+.section-body {
+  min-height:calc(100vh - #{$HeaderHeight + $FooterHeight + 2 * ($HeaderPadding + $FooterPadding )}px);
+  width: 100%;
+  padding:$BodyPadding;
+  line-height: 35px;
+  font-size: 18;
+}
+
+.section-block {
+  position:relative;
+  
+  padding:0px 65px;
+  max-width:700px;
+  display:inline-block;
+}
+
+.section-footer {
+  background: #ddd;
+  line-height: #{$FooterHeight}px;
+  padding: 10px 20px;
+  color: #777;
+}
+
+.previous-section {
+  display: inline-block;
+  height: auto;
+  padding: 0px 15px;
+  cursor:pointer;
+
+  &:hover {
+    color:$MainColor;
+    .icon {
+      color:$MainColor;
+    }
+  }
+
+  .icon {
+    margin:0px;
+    margin-right:5px;
+
+  }
+}
+
+.icon {
+  background:#ddd;
+  padding:10px;
+  border-radius:50%;
+  margin:0px 10px;
+  display:inline-block;
+  text-align:center;
+}
+
+.section-header .icon {
+    float:left;
+    padding:0px;
+    color:$MainColor;
+    background:none;
+    @include unselectable;
+}

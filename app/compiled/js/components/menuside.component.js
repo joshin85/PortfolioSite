@@ -23,13 +23,13 @@ System.register(['angular2/core', './menucontainer.component'], function(exports
         execute: function() {
             SideMenu = (function () {
                 function SideMenu() {
-                    this.on = false;
+                    this.menuShow = false;
                     this.backdrop = false;
                     this.name = "Menu";
                 }
+                //Event for when nav button is clicked;
                 SideMenu.prototype.showMenuSide = function () {
-                    this.on = !this.on;
-                    this.backdrop = !this.backdrop;
+                    this.menuShow = !this.menuShow;
                 };
                 __decorate([
                     core_1.Input(), 

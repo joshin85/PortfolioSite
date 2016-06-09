@@ -1,16 +1,30 @@
 body {
   -webkit-tap-highlight-color: rgba(201, 224, 253, 0);
   font-family: 'Roboto', sans-serif;
-  color: #282828; }
+  color: #282828;
+  margin: 0px; }
+
+body * {
+  box-sizing: border-box; }
+
+#container {
+  margin-top: 100vh; }
+
+.float-right {
+  float: right; }
+
+splash, section-container {
+  display: block; }
 
 #background-fixed {
-  position: fixed;
+  position: relative;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
   opacity: 0;
   background-size: cover;
+  z-index: -2;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -25,23 +39,33 @@ body {
   width: 100%;
   min-height: 70px;
   line-height: 70px;
-  padding: 30px 0px;
+  padding: 30px 100px;
   font-size: 50px;
-  text-align: center;
   color: #fff;
-  background: RGBA(0, 0, 0, 0.6);
   opacity: 0;
+  z-index: 6;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
   #title-bar i {
     font-size: 70; }
+  #title-bar span {
+    cursor: default;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none; }
 
 .button-group {
   display: inline-block;
-  position: absolute;
-  right: 0px; }
+  float: left;
+  margin-right: 15px; }
   @media (max-width: 767px) {
     .button-group {
       position: relative;
@@ -68,7 +92,7 @@ body {
       top: 50%;
       width: 50px;
       height: 50px;
-      z-index: -1;
+      z-index: -4;
       margin-left: -25px;
       margin-top: -25px;
       background: #0061B0;
@@ -85,12 +109,129 @@ body {
   width: 100%;
   height: 70; }
 
+#title-menu {
+  position: absolute;
+  width: 100%;
+  bottom: 50px; }
+
+#title-menu ul {
+  float: right;
+  width: 100%;
+  display: inline-block;
+  padding: 10px 30px;
+  color: #ddd;
+  background: RGBA(0, 0, 0, 0.2); }
+
+#title-menu li {
+  list-style: none;
+  display: inline-block;
+  padding: 2px 0px;
+  margin: 0px 10px;
+  float: right;
+  font-size: 20px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden; }
+  #title-menu li:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    left: 0px;
+    background: linear-gradient(to right, RGBA(0, 0, 0, 0) 50%, #ddd 50%);
+    background-size: 201% 100%;
+    background-position: left bottom;
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+  #title-menu li:hover:after {
+    background-position: right bottom; }
+
+section-container {
+  z-index: 6;
+  background: white; }
+
+.section-header {
+  line-height: 50px;
+  background: #282828;
+  color: white;
+  text-align: center;
+  padding: 50px;
+  font-size: 45px;
+  cursor: default;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none; }
+
+.section-body {
+  min-height: calc(100vh - 220px);
+  width: 100%;
+  padding: 50;
+  line-height: 35px;
+  font-size: 18; }
+
+.section-block {
+  position: relative;
+  padding: 0px 65px;
+  max-width: 700px;
+  display: inline-block; }
+
+.section-footer {
+  background: #ddd;
+  line-height: 50px;
+  padding: 10px 20px;
+  color: #777; }
+
+.previous-section {
+  display: inline-block;
+  height: auto;
+  padding: 0px 15px;
+  cursor: pointer; }
+  .previous-section:hover {
+    color: #0061B0; }
+    .previous-section:hover .icon {
+      color: #0061B0; }
+  .previous-section .icon {
+    margin: 0px;
+    margin-right: 5px; }
+
+.icon {
+  background: #ddd;
+  padding: 10px;
+  border-radius: 50%;
+  margin: 0px 10px;
+  display: inline-block;
+  text-align: center; }
+
+.section-header .icon {
+  float: left;
+  padding: 0px;
+  color: #0061B0;
+  background: none;
+  cursor: default;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none; }
+
 #navmenu-side {
   position: fixed;
   top: 30px;
   left: 30px;
-  width: 21px;
-  height: 14px;
   z-index: 8;
   background: #fff;
   border-radius: 0px;
@@ -98,12 +239,13 @@ body {
   padding: 10px;
   cursor: pointer;
   opacity: 0;
+  border: 1px solid #ddd;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
-  #navmenu-side:hover .icon-bar {
-    box-shadow: 3px 3px 3px RGBA(0, 0, 0, 0.2); }
+  #navmenu-side:hover {
+    background: #ddd; }
   #navmenu-side.active .icon-bar:first-child {
     -moz-transform: rotate(-35deg);
     -o-transform: rotate(-35deg);
@@ -130,8 +272,6 @@ body {
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
-  .icon-bar:hover {
-    box-shadow: 3px 3px 3px RGBA(0, 0, 0, 0.2); }
   .icon-bar:first-of-type {
     margin-top: 0px; }
 
@@ -173,10 +313,11 @@ body {
     -webkit-transform: translate(300px, 0px);
     transform: translate(300px, 0px); }
   #menu-side h2 {
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 20px;
     cursor: default;
     color: #0061B0;
+    cursor: default;
     -webkit-user-select: none;
     /* Chrome/Safari */
     -moz-user-select: none;
@@ -190,21 +331,11 @@ body {
     list-style-type: none;
     padding: 0px; }
   #menu-side li {
-    cursor: default;
     font-size: 17px;
     padding: 15px 20px;
     cursor: pointer;
     color: #282828;
     font-weight: 500;
-    -webkit-user-select: none;
-    /* Chrome/Safari */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* IE10+ */
-    /* Rules below not implemented in browsers yet */
-    -o-user-select: none;
-    user-select: none;
     -webkit-transform: translateZ(0);
     -moz-transform: translateZ(0);
     -ms-transform: translateZ(0);
@@ -230,8 +361,8 @@ body {
       color: #565656;
       background: #ddd; }
     #menu-side li.active {
-      background: #0061B0;
-      color: #fff; }
+      background: #ddd;
+      color: #0061B0; }
     #menu-side li .fa {
       margin-right: 25px; }
 
@@ -254,7 +385,7 @@ body {
   width: 100vw;
   background: black;
   opacity: 0;
-  z-index: -1;
+  z-index: -4;
   cursor: pointer;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;

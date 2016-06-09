@@ -1,4 +1,4 @@
-System.register(['angular2/core', './components/menuside.component', './components/splash.component', './Data/sections'], function(exports_1, context_1) {
+System.register(['angular2/core', './components/menuside.component', './components/entry.component', './components/section.component', './Data/sections'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './components/menuside.component', './componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, menuside_component_1, splash_component_1, globals;
+    var core_1, menuside_component_1, entry_component_1, section_component_1, globals;
     var home;
     return {
         setters:[
@@ -20,8 +20,11 @@ System.register(['angular2/core', './components/menuside.component', './componen
             function (menuside_component_1_1) {
                 menuside_component_1 = menuside_component_1_1;
             },
-            function (splash_component_1_1) {
-                splash_component_1 = splash_component_1_1;
+            function (entry_component_1_1) {
+                entry_component_1 = entry_component_1_1;
+            },
+            function (section_component_1_1) {
+                section_component_1 = section_component_1_1;
             },
             function (globals_1) {
                 globals = globals_1;
@@ -37,7 +40,7 @@ System.register(['angular2/core', './components/menuside.component', './componen
                     }),
                     core_1.View({
                         templateUrl: 'app/templates/home.component.html',
-                        directives: [menuside_component_1.SideMenu, splash_component_1.Splash]
+                        directives: [menuside_component_1.SideMenu, entry_component_1.Entry, section_component_1.SectionContainer]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], home);

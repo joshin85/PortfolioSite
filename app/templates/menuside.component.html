@@ -1,10 +1,10 @@
-<div class="backdrop"  (click)="showMenuSide()" [ngClass]="{active : backdrop}">
+<div class="backdrop"  (click)="showMenuSide()" [ngClass]="{active : menuShow}">
   <span class="close">&times;</span>
 </div>
-<div id="menu-side" [ngClass]="{active : on}">
+<div id="menu-side" [ngClass]="{active : menuShow}">
 
 <h2><i class="fa fa-bars"></i> {{name}}</h2>
-  <section-menuitems [sections]="sections"></section-menuitems>
+  <menucontainer [sections]="sections"></menucontainer>
 </div>
 <span id="navmenu-side" (click)="showMenuSide()" [ngClass]="{active : on}">
     <span class="icon-bar"></span>

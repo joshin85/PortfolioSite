@@ -1,20 +1,36 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, SimpleChange,OnChanges} from 'angular2/core';
 import {NgClass} from 'angular2/common';
-import {section} from '../Objects/section';
+import {Section} from '../Objects/section';
 import {MenuItem} from './menuitem.component';
 
 @Component({
-    selector: 'section-menuitems',
+    selector: 'menucontainer',
     templateUrl : 'app/templates/menucontainer.component.html',
-    directives: [MenuItem]
+    directives: [MenuItem],
+
+    changeDetection: ChangeDetectionStrategy.CheckAlways
 })
 
 
-export class MenuContainer {
+export class MenuContainer  {
   @Input() sections;
+  active : Section;
 
-  itemClicked(item){
-    item.class = "active";
+  ngOnInit() {
+    this.active = this.sections[0]; //set the default value to the first section
+  }
+
+  //Handle enabling and disabling sections
+  ngDoCheck(){
+    let cur = this.active;
+    this.sections.map((x) => { 
+      if(!x.equals(cur) && x.active) {
+        cur.active = false;
+        this.active = x;
+      } else {
+        x.active = false;
+      }
+    });
   }
 
 }
