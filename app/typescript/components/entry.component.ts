@@ -18,11 +18,9 @@ export class Entry {
 
   ngAfterContentInit(){
     var bgImage = new Image();
-    bgImage.src = "http://192.168.1.97:3000/app/images/1005141859b.jpg";
+    bgImage.src = "http://192.168.1.97:3000/app/images/bandw.jpg";
     bgImage.onload = function(){
       var loader = document.getElementById("loader");
-      loader.innerHTML  = "";
-      loader.style.transform = "scale(15)";
       loader.style.opacity = "0";
       var background = document.getElementById("background-fixed");
       var titlebar = document.getElementById("title-bar");
