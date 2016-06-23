@@ -21,7 +21,9 @@ splash, section-container {
   display:block;
 }
 
+section-container {
+  display:none; 
+}
 
 @import "_entry";
-@import "_section";
 @import "_sidemenu";

@@ -1,3 +1,6 @@
+@import "_globals";
+
+
 #background-fixed {
   position:relative;
   top:0px;
@@ -21,9 +24,11 @@
   min-height:70px;
   line-height:70px;
   padding:30px 100px;
-  font-size:50px;
+  font-size:45px;
   color: #fff;
   opacity:0;
+
+
   z-index:$layerBody;
 
   i {
@@ -31,7 +36,13 @@
   }
 
   span {
+    display: inline-block;
+    text-align: center;
     @include unselectable;
+  }
+
+  @include mobile {
+      padding:0px;
   }
 
   @include animate(.2s);
@@ -45,6 +56,8 @@
   @include mobile {
     position:relative;
     margin-top:15px;
+    width:100%;
+    text-align: center;
   }
 
   a {
@@ -55,12 +68,17 @@
     cursor:pointer;
     color:#fff;
 
+    @include mobile {
+      float:none;
+
+    }
+
     &:hover {
       color:#fff;
       //text-shadow:3px 3px 3px RGBA(0,0,0,.2);
 
       &::after {
-        opacity:1;
+        width:50px;
       }
     }
     &::after {
@@ -68,13 +86,12 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 50px;
+      width: 0px;
       height: 50px;
       z-index:$layerHidden;
       margin-left: -25px;
       margin-top: -25px;
       background: $MainColor;
-      opacity:0;
       content: " ";
       @include animate(.2s);
     }
@@ -93,16 +110,20 @@
 }
 
 #title-menu {
-  position:fixed;
   width:100%;
   top:0px;
+
+  @include mobile {
+    display:none;
+  }
+
 }
 
 #title-menu ul {
-  float:right;
-  width:100%;
   display:inline-block;
-  padding:15px 30px;
+  margin: 0px;
+  margin-top:20px;
+  padding: 0px 30px !important;
   color:#ddd;
 }
 
@@ -112,7 +133,8 @@
   padding:2px 0px;
   margin:0px 10px;
   float:right;
-  color:$MainColor;
+  color:white;
+  line-height:33px;
   font-size:20px;
   position:relative;
   cursor:pointer;
@@ -120,9 +142,9 @@
   &:after {
     content: "";
     position: absolute;
-    height: 1px;
+    height: 2px;
     left:0px;
-    background: linear-gradient(to right, RGBA(0,0,0,0) 50%, #ddd 50%);
+    background: linear-gradient(to right, RGBA(0,0,0,0) 50%, $MainColor 50%);
     background-size: 201% 100%;
     background-position:left bottom;
     bottom: 0px;
@@ -134,4 +156,20 @@
     background-position:right bottom;
   }
 
+
+}
+
+code.background-code {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width:50%;
+  color: white;
+  white-space: pre;
+  overflow:hidden;
+  font-size: 15px;
+  color: #ddd;
+  opacity: .1;
+  overflow:hidden;
+  height:100%;
 }

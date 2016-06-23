@@ -28,6 +28,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 SectionContainer = __decorate([
                     core_1.Component({
                         selector: 'section-container',
+                        styleUrls: ['app/compiled/css/section.css'],
                         templateUrl: 'app/templates/section.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
