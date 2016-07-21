@@ -10,7 +10,7 @@
     "lite": "lite-server",
     "typings": "typings",
     "postinstall": "typings install",
-    "build-css": "node-sass -w app/scss/ -o app/compiled/css/"
+    "build-css": "node-sass -w -r app/ -o app/"
   },
    "dependencies": {
     "angular2": "2.0.0-beta.9",

@@ -1,0 +1,31 @@
+
+body{
+  -webkit-tap-highlight-color: rgba(201, 224, 253, 0);
+  font-family: 'Roboto', sans-serif;
+  color:#282828;
+  margin:0px;
+}
+
+//This is not a slow selector btw
+body *{
+  box-sizing:border-box;
+}
+
+ 
+.float-right {
+  float:right;
+}
+
+splash, section-container {
+  display:block;
+}
+
+#container {
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+@import "Components/Entry/_entry";
+@import "Components/Section/_section";
+@import "Components/SideMenu/_sidemenu";

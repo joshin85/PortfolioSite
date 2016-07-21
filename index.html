@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Loader -->
-      <link rel="stylesheet" href="app/compiled/css/loader.css">
+      <link rel="stylesheet" href="app/loader.css">
 
     <!--START CDN stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -13,10 +13,8 @@
 
     <!--START Shinjo StyleSheets/Source -->
       <!-- STYLESHEETS -->
-      <link rel="stylesheet" href="app/compiled/css/main.css">
+      <link rel="stylesheet" href="app/main.css">
 
-      <!-- Source -->
-      <script src="app/app.js"></script>
 
     <!--END Shinjo StyleSheets/Source -->
 
@@ -43,11 +41,11 @@
           'rxjs': {defaultExtension: 'js'}
         }
       });
-      System.import('app/compiled/js/main').then(null, console.error.bind(console));
+      System.import('app/main').then(null, console.error.bind(console));
     </script>
   </head>
   <body>
-  
+
 
   <Portfolio-Shinjo></Portfolio-Shinjo>
 

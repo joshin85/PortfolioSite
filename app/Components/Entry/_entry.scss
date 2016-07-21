@@ -1,0 +1,195 @@
+@import "../../_globals";
+
+
+#background-fixed {
+  position:relative;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  opacity:0;
+  background-size: cover;
+  z-index:$layerBackground;
+
+  @include animate($AnimationSlow);
+}
+
+#title-bar {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  line-height: calc(100%);
+  transform: translateY(-50%);
+  width: 100%;
+  min-height:70px;
+  line-height:70px;
+  padding:30px 100px;
+  font-size:45px;
+  color: #fff;
+  opacity:0;
+
+
+  z-index:$layerBody;
+
+  i {
+    font-size:70;
+  }
+
+  span {
+    display: inline-block;
+    text-align: center;
+    @include unselectable;
+  }
+
+  @include mobile {
+      padding:0px;
+  }
+
+  @include animate($AnimationFast);
+}
+
+.button-group {
+  display:inline-block;
+  float:left;
+  margin-right:15px;
+
+  @include mobile {
+    position:relative;
+    margin-top:15px;
+    width:100%;
+    text-align: center;
+  }
+
+  a {
+    position:relative;
+    margin:0px 10px;
+    display:inline-block;
+    float:right;
+    cursor:pointer;
+    color:#fff;
+
+    @include mobile {
+      float:none;
+
+    }
+
+    &:hover {
+      color:#fff;
+      //text-shadow:3px 3px 3px RGBA(0,0,0,.2);
+
+      &::after {
+        width:50px;
+      }
+    }
+    &::after {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0px;
+      height: 50px;
+      z-index:$layerHidden;
+      margin-left: -25px;
+      margin-top: -25px;
+      background: $MainColor;
+      content: " ";
+      @include animate($AnimationFast);
+    }
+
+    @include animate($AnimationFast);
+
+  }
+
+}
+
+.divider-full{
+  position:relative;
+  background:$MainColor;
+  width:100%;
+  height:$DividerHeight;
+}
+
+#title-menu {
+  width:100%;
+  top:0px;
+
+  @include mobile {
+    display:none;
+  }
+
+}
+
+#title-menu ul {
+  display:inline-block;
+  margin: 0px;
+  margin-top:20px;
+  padding: 0px 30px !important;
+  color:#ddd;
+}
+
+#title-menu li {
+  list-style:none;
+  display:inline-block;
+  padding:2px 0px;
+  margin:0px 10px;
+  float:right;
+  color:white;
+  line-height:33px;
+  font-size:20px;
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+
+  i {
+    display:none;
+  }
+
+  &.active:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    left:0px;
+    background: linear-gradient(to right, $MainColor 50%, RGBA(0,0,0,0) 50%);
+    background-size: 250% 100%;
+    background-position:right bottom;
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    left:0px;
+    background: linear-gradient(to right, $MainColor 50%, RGBA(0,0,0,0) 50%);
+    background-size: 250% 100%;
+    background-position:right bottom;
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+
+    @include animate($AnimationFast);
+  }
+  &:hover:after {
+    background-position:left bottom;
+  }
+
+
+  @include animate($AnimationFast);
+}
+
+code.background-code {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width:50%;
+  color: white;
+  white-space: pre;
+  overflow:hidden;
+  font-size: 15px;
+  color: #ddd;
+  opacity: .1;
+  overflow:hidden;
+  height:100%;
+}
