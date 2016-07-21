@@ -13,8 +13,10 @@ body * {
 splash, section-container {
   display: block; }
 
-section-container {
-  display: none; }
+#container {
+  position: absolute;
+  top: 0px;
+  left: 0px; }
 
 #background-fixed {
   position: relative;
@@ -25,10 +27,10 @@ section-container {
   opacity: 0;
   background-size: cover;
   z-index: -2;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out; }
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out; }
 
 #title-bar {
   position: absolute;
@@ -143,15 +145,32 @@ section-container {
   font-size: 20px;
   position: relative;
   cursor: pointer;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+  #title-menu li i {
+    display: none; }
+  #title-menu li.active:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    left: 0px;
+    background: linear-gradient(to right, #007666 50%, RGBA(0, 0, 0, 0) 50%);
+    background-size: 250% 100%;
+    background-position: right bottom;
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden; }
   #title-menu li:after {
     content: "";
     position: absolute;
     height: 2px;
     left: 0px;
-    background: linear-gradient(to right, RGBA(0, 0, 0, 0) 50%, #007666 50%);
-    background-size: 201% 100%;
-    background-position: left bottom;
+    background: linear-gradient(to right, #007666 50%, RGBA(0, 0, 0, 0) 50%);
+    background-size: 250% 100%;
+    background-position: right bottom;
     bottom: 0px;
     width: 100%;
     overflow: hidden;
@@ -160,7 +179,7 @@ section-container {
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
   #title-menu li:hover:after {
-    background-position: right bottom; }
+    background-position: left bottom; }
 
 code.background-code {
   position: absolute;
@@ -176,14 +195,120 @@ code.background-code {
   overflow: hidden;
   height: 100%; }
 
+section {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%; }
+
+section-container.active {
+  transform: translateX(0); }
+
+section-container {
+  transform: translateX(-100%);
+  z-index: 8;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out; }
+  section-container .section-body {
+    background: white; }
+
+.enabled .fa {
+  display: block; }
+
+#container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+.section-header {
+  display: inline-block;
+  line-height: 50px;
+  background: #282828;
+  color: white;
+  text-align: center;
+  padding: 50px;
+  min-height: 50;
+  font-size: 45px;
+  cursor: default;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none; }
+
+.section-body {
+  min-height: calc(100vh - 220px);
+  width: 100%;
+  padding: 50;
+  line-height: 35px;
+  font-size: 18; }
+
+.section-block {
+  position: relative;
+  padding: 0px 65px;
+  max-width: 700px;
+  display: inline-block; }
+
+.section-footer {
+  display: inline-block;
+  min-height: 50px;
+  background: #ddd;
+  line-height: 50px;
+  padding: 10px 20px;
+  color: #777; }
+
+.previous-section {
+  display: inline-block;
+  height: auto;
+  padding: 0px 15px;
+  cursor: pointer; }
+  .previous-section:hover {
+    color: #007666; }
+    .previous-section:hover .icon {
+      color: #007666; }
+  .previous-section .icon {
+    margin: 0px;
+    margin-right: 5px; }
+
+.icon {
+  background: #ddd;
+  padding: 10px;
+  border-radius: 50%;
+  margin: 0px 10px;
+  display: inline-block;
+  text-align: center; }
+
+.section-header .icon {
+  float: left;
+  padding: 0px;
+  color: #007666;
+  background: none;
+  cursor: default;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none; }
+
 #navmenu-side {
+  display: none;
   position: fixed;
   top: 30px;
   left: 30px;
   z-index: 8;
-  background: #ddd;
+  background: white;
   border-radius: 0px;
-  display: inline-block;
   padding: 10px;
   cursor: pointer;
   opacity: 0;

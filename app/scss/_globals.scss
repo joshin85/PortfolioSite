@@ -13,11 +13,15 @@ $TextLight: #777;
 $TextActive: #777;
 $TextHover: #565656;
 
+//Animation speed
+$AnimationSlow : .4s;
+$AnimationFast : .2s;
+
 //layers
 $layerHidden : -4;
 $layerBackground : -2;
 $layerBody : 6;
-$layerC : 8;
+$layerSection : 8;
 $layerOverlay : 10;
 
 //Vars
@@ -146,7 +150,7 @@ $desktop-width: 1024px;
 
 @mixin hover{
     &:hover {
-      @include animate(.2s);
+      @include animate($AnimationFast);
       background:$MainColor;
       color:$TextHover;
     }

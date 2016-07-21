@@ -21,9 +21,12 @@ splash, section-container {
   display:block;
 }
 
-section-container {
-  display:none; 
+#container {
+  position:absolute;
+  top:0px;
+  left:0px;
 }
 
 @import "_entry";
+@import "_section";
 @import "_sidemenu";

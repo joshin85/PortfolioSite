@@ -12,11 +12,12 @@ import {Section} from '../Objects/section';
 export class Entry {
   @Input() sections;
 
-  constructor(){
 
+  constructor(){
   }
 
   ngAfterContentInit(){
+    //Load background image and hide loader
     var bgImage = new Image();
     bgImage.src = "http://192.168.1.97:3000/app/images/bandw.jpg";
     bgImage.onload = function(){

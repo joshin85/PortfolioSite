@@ -7,6 +7,9 @@
   <div id="container">
     <section-container
       *ngFor="#section of sections"
-      [section] = "section">
+      [sections] = "sections"
+      [section] = "section"
+      [menuType] = "menuType"
+      [ngClass]="{active : section.active}" >
     </section-container>
   </div>

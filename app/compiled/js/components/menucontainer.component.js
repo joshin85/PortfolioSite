@@ -24,33 +24,19 @@ System.register(['angular2/core', './menuitem.component'], function(exports_1, c
             MenuContainer = (function () {
                 function MenuContainer() {
                 }
-                MenuContainer.prototype.ngOnInit = function () {
-                    this.active = this.sections[0]; //set the default value to the first section
-                };
-                //Handle enabling and disabling sections
-                MenuContainer.prototype.ngDoCheck = function () {
-                    var _this = this;
-                    var cur = this.active;
-                    this.sections.map(function (x) {
-                        if (!x.equals(cur) && x.active) {
-                            cur.active = false;
-                            _this.active = x;
-                        }
-                        else {
-                            x.active = false;
-                        }
-                    });
-                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Object)
                 ], MenuContainer.prototype, "sections", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', String)
+                ], MenuContainer.prototype, "menuType", void 0);
                 MenuContainer = __decorate([
                     core_1.Component({
                         selector: 'menucontainer',
                         templateUrl: 'app/templates/menucontainer.component.html',
-                        directives: [menuitem_component_1.MenuItem],
-                        changeDetection: core_1.ChangeDetectionStrategy.CheckAlways
+                        directives: [menuitem_component_1.MenuItem]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], MenuContainer);

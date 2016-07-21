@@ -20,6 +20,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             MenuItem = (function () {
                 function MenuItem() {
+                    this.icon = false;
+                    //If menu item then show icon - to avoid the convoluted world of dynamic component loaders and due to the limitation of not having dynamic template loading
+                    //As unfortunatley components are rendored at runtime
+                    if (this.menuType == "icon")
+                        this.icon = true;
                 }
                 MenuItem.prototype.activateSection = function () {
                     this.section.active = true;
@@ -28,6 +33,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     core_1.Input(), 
                     __metadata('design:type', Object)
                 ], MenuItem.prototype, "section", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], MenuItem.prototype, "menuType", void 0);
                 MenuItem = __decorate([
                     core_1.Component({
                         selector: 'menuitem',

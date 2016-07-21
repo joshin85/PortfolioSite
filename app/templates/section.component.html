@@ -9,5 +9,9 @@
   </div>
   <div class="section-footer">
     <a class="previous-section"><span class="icon icon-small"><i class="fa fa-{{section.icon}}"></i></span> {{section.headerText}} </a>
+    <menucontainer
+      [sections]="sections"
+      [menuType] = "menuType"
+      ></menucontainer>
   </div>
 </section>

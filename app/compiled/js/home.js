@@ -33,14 +33,32 @@ System.register(['angular2/core', './components/menuside.component', './componen
             home = (function () {
                 function home() {
                     this.sections = globals.sections;
+                    this.menuType = "text";
                 }
+                home.prototype.ngOnInit = function () {
+                    this.active = this.sections[0]; //set the default value to the first section
+                };
+                //Handle enabling and disabling sections
+                home.prototype.ngDoCheck = function () {
+                    var _this = this;
+                    var cur = this.active;
+                    this.sections.map(function (x) {
+                        //If not current then activate the section
+                        if (!x.equals(cur) && x.active) {
+                            cur.active = false;
+                            _this.active = x;
+                        }
+                        else {
+                            x.active = false;
+                        }
+                    });
+                };
                 home = __decorate([
                     core_1.Component({
                         selector: 'Portfolio-Shinjo',
-                    }),
-                    core_1.View({
                         templateUrl: 'app/templates/home.component.html',
-                        directives: [menuside_component_1.SideMenu, entry_component_1.Entry, section_component_1.SectionContainer]
+                        directives: [menuside_component_1.SideMenu, entry_component_1.Entry, section_component_1.SectionContainer],
+                        changeDetection: core_1.ChangeDetectionStrategy.CheckAlways
                     }), 
                     __metadata('design:paramtypes', [])
                 ], home);

@@ -25,6 +25,7 @@ System.register(['angular2/core', './menucontainer.component'], function(exports
                 function Entry() {
                 }
                 Entry.prototype.ngAfterContentInit = function () {
+                    //Load background image and hide loader
                     var bgImage = new Image();
                     bgImage.src = "http://192.168.1.97:3000/app/images/bandw.jpg";
                     bgImage.onload = function () {
