@@ -12,10 +12,16 @@ import {MenuContainer} from '../Menu/MenuContainer/menucontainer.component';
 export class SectionContainer {
   @Input() sections;
   @Input() section;
+  menuActive : boolean;
 
   //Determine the type of menu that will be used
   @Input() menuType;
   constructor(){
     this.menuType = "icon";
+    this.menuActive =  false;
+  }
+
+  toggleMenu (){
+    this.menuActive = !this.menuActive;
   }
 }

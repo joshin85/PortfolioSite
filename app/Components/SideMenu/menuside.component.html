@@ -2,12 +2,11 @@
   <span class="close">&times;</span>
 </div>
 <div id="menu-side" [ngClass]="{active : menuShow}">
-
-<h2><i class="fa fa-bars"></i> {{name}}</h2>
-  <menucontainer [sections]="sections"></menucontainer>
-</div>
-<span id="navmenu-side" (click)="showMenuSide()" [ngClass]="{active : on}">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
+  <h2><i class="fa fa-bars"></i> {{name}}</h2>
+    <menucontainer [sections]="sections"></menucontainer>
+  </div>
+  <span id="navmenu-side" (click)="showMenuSide()" [ngClass]="{active : on}" style="display:none">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
 </span>

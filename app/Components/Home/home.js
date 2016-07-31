@@ -48,9 +48,6 @@ System.register(['angular2/core', '../SideMenu/menuside.component', '../Entry/en
                             cur.active = false;
                             _this.active = x;
                         }
-                        else {
-                            x.active = false;
-                        }
                     });
                 };
                 home = __decorate([

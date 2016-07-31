@@ -1,24 +1,133 @@
 @import "../../_globals";
 
 $HeaderHeight : 50;
-$HeaderPadding : 50;
+$HeaderPadding : 40;
 $FooterHeight : 50;
 $FooterPadding : 10;
 $BodyPadding : 50;
 
 section-container {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100vw;
+  height:100vh;
   z-index:$layerBody;
+  transform:translateX(-100%);
   background:white;
-  display:none;
+
+  &.active{
+      transform:translateX(0);
+      display:block;
+  }
+
+
+  @include animate($AnimationSlow);
 }
 
 .section-header {
   line-height: #{$HeaderHeight}px;
-  background: #282828;
   color: white;
   text-align: center;
-  padding:  #{$HeaderPadding}px;
   font-size: 45px;
+  display:inline-block;
+
+  .menu.active .menu-container{
+    display:block;
+  }
+
+  .menu.active .menu-toggle {
+    @include shadow;
+  }
+
+  .menu-container {
+    position: absolute;
+    left: 0px;
+    top:110px;
+    overflow:hidden;
+    padding-right:10px;
+    padding-bottom:10px;
+    display:none;
+    z-index:$layerOverlay;
+
+    ul{
+      font-size: 20px;
+      list-style: none;
+      text-align: left;
+      padding:5px;
+      background:white;
+      color:$MainColor;
+      border-right:5px solid $MainColor;
+      transform-origin:top;
+      @include shadow;
+
+      &.active {
+        display:block;
+      }
+
+      .fa {
+        margin-right:20px;
+      }
+
+      li {
+        cursor:pointer;
+        padding:5px 25px;
+
+        &.active {
+          background:$MainColor;
+          color:white;
+        }
+        &:hover {
+          background:$LightColor;
+          color:white;
+        }
+
+        @include animate($AnimationSlow);
+      }
+
+      &::after {
+        content:" ";
+        width:0px;
+        height:0px;
+        position:absolute;
+        top:10px;
+        left:55px;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid white;
+        border-left: 10px solid transparent;
+
+      }
+
+      @include animate($AnimationFast);
+    }
+}
+
+  .menu-toggle {
+      float:left;
+      padding:0px;
+      color:white;
+      background:$MainColor;
+      padding:  #{$HeaderPadding}px;
+      cursor:pointer;
+      width:130px;
+      height:130px;
+
+      &:hover > .fa{
+        text-shadow:3px 3px 2px RGBA(200,200,200,200);
+      }
+
+      @include animate($AnimationSlow);
+  }
+
+  .icon {
+    margin-right:30px;
+  }
+
+  .section-title{
+    color:$TextColor;
+    display:inline-block;
+    padding:  #{$HeaderPadding}px;
+  }
 
   @include unselectable;
 }
@@ -26,6 +135,7 @@ section-container {
 .section-body {
   min-height:calc(100vh - #{$HeaderHeight + $FooterHeight + 2 * ($HeaderPadding + $FooterPadding )}px);
   width: 100%;
+  background:white;
   padding:$BodyPadding;
   line-height: 35px;
   font-size: 18;
@@ -43,41 +153,29 @@ section-container {
   line-height: #{$FooterHeight}px;
   padding: 10px 20px;
   color: #777;
-}
+  display:block;
 
-.previous-section {
-  display: inline-block;
-  height: auto;
-  padding: 0px 15px;
-  cursor:pointer;
 
-  &:hover {
-    color:$MainColor;
-    .icon {
+
+  .previous-section {
+    display: inline-block;
+    height: auto;
+    padding: 0px 15px;
+    cursor:pointer;
+
+    &:hover {
       color:$MainColor;
+      .icon {
+        color:$MainColor;
+      }
+    }
+
+    .icon {
+      font-size:30px;
+      padding:10px;
+      margin:0px;
+      margin-right:5px;
+
     }
   }
-
-  .icon {
-    margin:0px;
-    margin-right:5px;
-
-  }
-}
-
-.icon {
-  background:#ddd;
-  padding:10px;
-  border-radius:50%;
-  margin:0px 10px;
-  display:inline-block;
-  text-align:center;
-}
-
-.section-header .icon {
-    float:left;
-    padding:0px;
-    color:$MainColor;
-    background:none;
-    @include unselectable;
 }

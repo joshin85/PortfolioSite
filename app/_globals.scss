@@ -6,7 +6,7 @@ $ImagePath :"../../images/";
 $MainColor:#007666;// #0061B0;
 $MainDark:#005444;
 $SecondaryColor: #ddd;
-$LightColor:#33c9bb;
+$LightColor:#009688;
 $BackgroundColor: #fff;
 $TextColor: #282828;
 $TextLight: #777;
@@ -157,5 +157,5 @@ $desktop-width: 1024px;
 }
 
 @mixin shadow {
-  box-shadow:3px 3px 3px RGBA(0,0,0,.2);
+  box-shadow:2px 2px 10px RGBA(0,0,0,.2);
 }

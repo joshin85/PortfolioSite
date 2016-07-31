@@ -36,11 +36,8 @@ export class home {
       if(!x.equals(cur) && x.active) {
         cur.active = false;
         this.active = x;
-
-      //Else disable section
-      } else {
-        x.active = false;
       }
+
     });
   }
 

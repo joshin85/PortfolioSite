@@ -1,17 +1,28 @@
 <section>
   <div class="section-header">
-    <span class="icon"><i class="fa fa-{{section.icon}}"></i></span>
-    {{section.headerText}}
+
+    <span class="menu" [ngClass]="{active : menuActive}">
+      <i class="menu-toggle fa fa-bars" (click)="toggleMenu()"><span id="navmenu-side" (click)="showMenuSide()" [ngClass]="{active : on}">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </span></i>
+      <menucontainer
+        [sections]="sections"
+        [menuType] = "menuType"
+        ></menucontainer>
+    </span>
+    <div class="section-title">
+        <i class="icon fa fa-{{section.icon}}"></i>
+        {{section.headerText}}
+    </div>
   </div>
   <div class="section-body">
     <div class="section-block">{{section.bodyText}}</div>
-    <div class="section-block"><img src="{{section.imageURL}}"></div>
+    <div class="section-block"><!--<img src="{{section.imageURL}}">--></div>
   </div>
   <div class="section-footer">
-    <a class="previous-section"><span class="icon icon-small"><i class="fa fa-{{section.icon}}"></i></span> {{section.headerText}} </a>
-    <menucontainer
-      [sections]="sections"
-      [menuType] = "menuType"
-      ></menucontainer>
+    <a class="previous-section"><span class="icon icon-small"><i class="fa fa-chevron-left"></i></span></a>
+
   </div>
 </section>

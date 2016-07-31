@@ -24,7 +24,11 @@ System.register(['angular2/core', '../Menu/MenuContainer/menucontainer.component
             SectionContainer = (function () {
                 function SectionContainer() {
                     this.menuType = "icon";
+                    this.menuActive = false;
                 }
+                SectionContainer.prototype.toggleMenu = function () {
+                    this.menuActive = !this.menuActive;
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Object)
